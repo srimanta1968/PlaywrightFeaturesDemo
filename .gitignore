@@ -1,0 +1,12 @@
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/artifacts/
+/axe-reports/
+
+# File manager history file
+.directory
+
+# Test state Json file
+orangehrmlive.json
