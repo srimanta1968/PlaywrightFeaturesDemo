@@ -6,14 +6,14 @@ test.use({
         // latitude: 51.500457,
         // longitude: 0.125827 
 
-        // Dracula's castle's location.
-        latitude: 45.514993,
-        longitude: 25.367217
+        // Colosseum, Rome.
+        latitude: 41.890218,
+        longitude: 12.492335
     },
     permissions: ['geolocation']
 });
 
-test('Visit Dracula castle @dracula @geolocation', async ({ page }) => {
+test(`Visit Colosseum in Rome, Italy @dracula @geolocation`, async ({ page }) => {
     await page.goto("https://www.bing.com/maps");
 
     await page.getByRole('button', { name: 'Locate me' }).click();
@@ -21,7 +21,7 @@ test('Visit Dracula castle @dracula @geolocation', async ({ page }) => {
     await page.pause();
 });
 
-test('Spoof my location @geolocation', async ({ page }) => {
+test(`Spoof my location @geolocation`, async ({ page }) => {
     await page.goto("https://mylocation.org/");
 
     await page.getByRole('tab', { name: 'Browser Geolocation' }).click();
