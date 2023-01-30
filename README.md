@@ -11,7 +11,7 @@ These demo tests include:
 - Intercept requests
 - Geo-location simulation
 - Accessibility testing
-- Visual regression testing (You need to a local web server serving a page on port 3000)
+- Visual regression testing (You need to have a local web server serving a page on port 3000)
 
 ## Usage
 ---------------------------

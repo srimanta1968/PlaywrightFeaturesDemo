@@ -4,7 +4,7 @@ test('Visit Playwright Docs @device', async ({ page, isMobile }) => {
     await page.goto('https://playwright.dev');
 
     if (isMobile) {
-        await page.getByRole('button', { name: 'Navigation bar toggle' }).click();
+        await page.getByRole('button', { name: 'Toggle navigation bar' }).click();
     }
 
     await page.getByRole('link', { name: 'Docs' }).click();
