@@ -13,7 +13,7 @@ test.use({
     permissions: ['geolocation']
 });
 
-test(`Visit Colosseum in Rome, Italy @dracula @geolocation`, async ({ page }) => {
+test(`Visit Colosseum in Rome, Italy @geolocation`, async ({ page }) => {
     await page.goto("https://www.bing.com/maps");
 
     await page.getByRole('button', { name: 'Locate me' }).click();
