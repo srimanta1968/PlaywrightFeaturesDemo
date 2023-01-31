@@ -11,7 +11,8 @@ These demo tests include:
 - Intercept requests
 - Geo-location simulation
 - Accessibility testing
-- Visual regression testing (You need to have a local web server serving a page on port 3000)
+- Visual regression testing (A local static web site will automatically will be served at [http://localhost:3000](http://localhost:3000), see `playwright.config.ts` file)
+- Fixture use example
 
 ## Usage
 ---------------------------

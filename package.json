@@ -1,9 +1,11 @@
 {
-  "name": "playwrightdemo",
+  "name": "playwrightfeaturesdemo",
   "version": "1.0.0",
   "description": "A demo project to show off  Playwright's capabilities",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "serve ./static-website"
+  },
   "keywords": [],
   "author": "Arpan Patelia",
   "license": "ISC",
@@ -12,6 +14,7 @@
   },
   "dependencies": {
     "@axe-core/playwright": "^4.5.2",
-    "axe-html-reporter": "^2.2.3"
+    "axe-html-reporter": "^2.2.3",
+    "serve": "^14.2.0"
   }
 }
