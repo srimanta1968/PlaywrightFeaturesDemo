@@ -53,13 +53,11 @@ test('Create a new booking @api', async ({ request }) => {
 
     // Store booking id for fetching the booking.
     bookingId = jsonBody.bookingid;
-
-    console.log("Your booking id is " + bookingId);
 });
 
 test('Retrieve booking for Jim @api', async ({ request }) => {
     test.skip(bookingId == undefined, "Can not retrieve an undefined booking.");
-    
+
     // Retrieve booking information using GET.
     const response = await request.get(host + endPoint + bookingId, {
         headers: {
@@ -70,7 +68,7 @@ test('Retrieve booking for Jim @api', async ({ request }) => {
     expect(response.status()).toEqual(200);
 
     const jsonBody = await response.json();
-    
+
     // Verify that booking is for Jim.
     expect(jsonBody.firstname).toBe('Jim');
 });
