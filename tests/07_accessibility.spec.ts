@@ -2,14 +2,14 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { createHtmlReport } from "axe-html-reporter";
 
-test('@accessibility Test a webpage HAVING accessibility issues', async ({ page }, testInfo) => {
+test('Test a webpage HAVING accessibility issues @accessibility', async ({ page }, testInfo) => {
     test.skip(process.env.CI != undefined, 'Skipping failing accessibility test on CI');
-    
+
     await page.goto('https://www.washington.edu/accesscomputing/AU/before.html');
 
     // Run the automated accessibility tests
     const accessibilityScanResults = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .withTags([ 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa' ])
         .analyze();
 
     // Attach accessibility test results to Playwright's test report.
@@ -32,12 +32,12 @@ test('@accessibility Test a webpage HAVING accessibility issues', async ({ page 
     expect(accessibilityScanResults.violations, "This will always fail.").toEqual([]);
 });
 
-test('@accessibility Test a webpage AFTER FIXING accessibility issues', async ({ page }, testInfo) => {
+test('Test a webpage AFTER FIXING accessibility issues @accessibility', async ({ page }, testInfo) => {
     await page.goto('https://www.washington.edu/accesscomputing/AU/after.html');
 
     // Run the automated accessibility tests
     const accessibilityFixesScanResults = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .withTags([ 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa' ])
         .analyze();
 
     // Attach accessibility test results to Playwright's test report.

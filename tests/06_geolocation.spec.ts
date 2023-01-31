@@ -13,7 +13,7 @@ test.use({
     permissions: ['geolocation']
 });
 
-test(`Visit Colosseum in Rome, Italy @geolocation`, async ({ page }) => {
+test('Visit Colosseum in Rome, Italy @geolocation', async ({ page }) => {
     await page.goto("https://www.bing.com/maps");
 
     await page.getByRole('button', { name: 'Locate me' }).click();
@@ -21,7 +21,7 @@ test(`Visit Colosseum in Rome, Italy @geolocation`, async ({ page }) => {
     await page.pause();
 });
 
-test(`Spoof my location @geolocation`, async ({ page }) => {
+test('Spoof my location @geolocation', async ({ page }) => {
     await page.goto("https://mylocation.org/");
 
     await page.getByRole('tab', { name: 'Browser Geolocation' }).click();

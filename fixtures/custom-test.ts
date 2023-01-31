@@ -3,7 +3,7 @@ import { LoginPage } from "../pages/login-page";
 
 type MyFixtures = {
     loginPage: LoginPage;
-}
+};
 
 export const test = baseTest.extend<MyFixtures>({
     loginPage: async ({ page }, use) => {
@@ -17,4 +17,4 @@ export const test = baseTest.extend<MyFixtures>({
     }
 });
 
-export { expect } from "@playwright/test"
+export { expect } from "@playwright/test";
