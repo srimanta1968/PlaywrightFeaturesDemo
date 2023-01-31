@@ -17,7 +17,7 @@ test.beforeAll(async ({ browser }) => {
     await context.close();
 });
 
-test('Test Leave tab functionality @reuse', async ({ browser }) => {
+test('Test My Info tab functionality @reuse', async ({ browser }) => {
     // Use previously saved logged in state for this test.
     const adminContext = await browser.newContext({ storageState: 'orangehrmlive.json' });
 
@@ -25,8 +25,8 @@ test('Test Leave tab functionality @reuse', async ({ browser }) => {
 
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php");
 
-    // Go to `Leave` tab.
-    await page.getByRole('link', { name: 'Leave' }).click();
+    // Go to `My Info` tab.
+    await page.getByRole('link', { name: 'My Info' }).click();
 
     await page.pause();
 
