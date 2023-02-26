@@ -1,4 +1,4 @@
-import { expect, request, test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test("Block all jpg images @intercept", async ({ page }) => {
     await page.route("**/*.jpg", (route) => route.abort());
