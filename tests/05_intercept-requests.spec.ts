@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("Block all jpg images @intercept", async ({ page }) => {
     await page.route("**/*.jpg", (route) => route.abort());
 
-    await page.goto("https://www.theverge.com");
+    await page.goto("https://flickr.com/explore");
 
     await page.pause();
 });
@@ -45,7 +45,7 @@ test("Modify response @intercept", async ({ page }) => {
 
         // Modify JSON response i.e. change the price of the first entry.
         const json = await response.json();
-        json.Items[0].price = 400;
+        json.Items[0].price = 1001;
 
         // Complete the request with modified response.
         await route.fulfill({ response, json });
@@ -57,7 +57,7 @@ test("Modify response @intercept", async ({ page }) => {
     // Find the price of the first product from the list.
     const galaxyPrice = page.locator("div.card-block").first().locator("h5");
 
-    expect(await galaxyPrice.textContent()).toBe("$400");
+    expect(await galaxyPrice.textContent()).toBe("$1001");
 
     await page.screenshot({
         path: "./test-results/galaxy-price.png",
