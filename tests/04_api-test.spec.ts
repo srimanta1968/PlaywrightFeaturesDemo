@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 
 const host = "https://restful-booker.herokuapp.com";
-const endPoint = '/booking/';
 let token: string;
 let bookingId: number;
 
@@ -9,8 +8,8 @@ test.describe.configure({ mode: "serial" });
 
 test.beforeAll(async ({ request }) => {
     // Get authentication token before making any other API requests.
-    let authEndPoint = '/auth';
-    const response = await request.post(host + authEndPoint, {
+    // We need authentication token for DELETE request.
+    const response = await request.post(host + '/auth', {
         headers: {
             'Content-Type': 'application/json'
         },
@@ -28,19 +27,18 @@ test.beforeAll(async ({ request }) => {
 
 test('Create a new booking @api', async ({ request }) => {
     // Create booking for Jim using POST.
-    const response = await request.post(host + endPoint, {
+    const response = await request.post(host + '/booking/', {
         headers: {
             'Content-Type': 'application/json'
         },
         data: {
-            'token': token,
             'firstname': 'Jim',
             'lastname': 'Brown',
             'totalprice': 111,
             'depositpaid': true,
             'bookingdates': {
-                'checkin': '2023-01-01',
-                'checkout': '2023-01-31'
+                'checkin': '2023-04-01',
+                'checkout': '2023-04-30'
             },
             'additionalneeds': 'Breakfast'
         }
@@ -59,7 +57,7 @@ test('Retrieve booking for Jim @api', async ({ request }) => {
     test.skip(bookingId == undefined, "Can not retrieve an undefined booking.");
 
     // Retrieve booking information using GET.
-    const response = await request.get(host + endPoint + bookingId, {
+    const response = await request.get(host + '/booking/' + bookingId, {
         headers: {
             'Accept': 'application/json'
         }
@@ -71,4 +69,19 @@ test('Retrieve booking for Jim @api', async ({ request }) => {
 
     // Verify that booking is for Jim.
     expect(jsonBody.firstname).toBe('Jim');
+});
+
+test('Delete booking for Jim @api', async ({ request }) => {
+    test.skip(bookingId == undefined, "Can not delete a non-existent booking.");
+
+    // Cancel booking using DELETE.
+    const response = await request.delete(host + '/booking/' + bookingId, {
+        headers: {
+            'Accept': 'application/json',
+            'Cookie': 'token=' + token
+        }
+    });
+
+    // Verify if the booking was deleted successfully or not.
+    expect(response.status()).toEqual(201);
 });
