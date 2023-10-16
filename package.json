@@ -10,7 +10,7 @@
   "author": "Arpan Patelia",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.36.0"
+    "@playwright/test": "^1.39.0"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.7.3",
