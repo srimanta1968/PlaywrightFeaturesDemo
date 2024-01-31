@@ -24,7 +24,11 @@ cd PlaywrightFeaturesDemo
 ```sh
 npm install
 ```
-4. Run tests.
+4. Install browsers.
+```sh
+npx playwright install
+```
+5. Run tests.
 ```sh
 npx playwright test
 ```
