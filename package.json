@@ -2,10 +2,7 @@
   "name": "playwrightfeaturesdemo",
   "version": "1.0.0",
   "description": "A demo project to show off  Playwright's capabilities",
-  "main": "index.js",
-  "scripts": {
-    "start": "serve ./static-website"
-  },
+  "main": "index.js",  
   "keywords": [],
   "author": "Arpan Patelia",
   "license": "ISC",
