@@ -10,6 +10,11 @@
     "@playwright/test": "^1.39.0",
     "@types/node": "^22.2.0"
   },
+   "scripts": {
+    "test": "npx playwright test",  
+    "lint": "npx eslint",
+    "prepare": "husky"
+  },
   "dependencies": {
     "@axe-core/playwright": "^4.7.3",
     "axe-html-reporter": "^2.2.3",
