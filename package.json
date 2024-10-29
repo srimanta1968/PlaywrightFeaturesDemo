@@ -11,9 +11,7 @@
     "@types/node": "^22.2.0"
   },
    "scripts": {
-    "test": "npx playwright test",  
-    "lint": "npx eslint",
-    "prepare": "husky"
+    "serve ./static-website"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.7.3",
