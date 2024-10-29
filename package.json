@@ -11,7 +11,7 @@
     "@types/node": "^22.2.0"
   },
    "scripts": {
-    "serve ./static-website"
+    "start" : "serve ./static-website"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.7.3",
